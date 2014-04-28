@@ -1,6 +1,7 @@
 # UniPlanner
 
-UniPlanner is a collaborative website designed for university students to gather and refer to their course and assessment dates.
+UniPlanner is a collaborative web app designed for university students to gather and refer to their courses and assessment dates.
+It allows students to associate their Facebook profile with each course they are currently taking. Each member gets an individual homepage that shows a customised study schedule and allows them to view the profiles of other students taking the same courses.
 
 ---
 
@@ -10,3 +11,5 @@ I wrote the majority of the server code in Python using Django. My project partn
 The web app was hosted on Heroku. In the final 2 weeks of the semester when UniPlanner went live, over 50 students used it to join up courses and share assessment dates with others in the same courses.
 
 This repository is a snapshot of the web app code that was submitted for assessment with all private settings removed.
+
+---Developed a web application using Django that allowed students to associate their Facebook profile with each course they were taking. The application gave students an individual homepage that showed a customised study schedule and allowed them to view the Facebook profile of other students taking the same courses.
