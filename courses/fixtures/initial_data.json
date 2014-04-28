@@ -1,0 +1,120 @@
+[
+  {
+    "pk": "UoA",
+    "model": "courses.university",
+    "fields": {
+      "name": "The University of Auckland",
+      "is_supported": true
+    }
+  },
+  {
+    "pk": "Vic",
+    "model": "courses.university",
+    "fields": {
+      "name": "Victoria University of Wellington",
+      "is_supported": false
+    }
+  },
+  {
+    "pk": "auckland.ac.nz",
+    "model": "courses.emaildomain",
+    "fields": {
+      "university": "UoA"
+    }
+  },
+  {
+    "pk": "aucklanduni.ac.nz",
+    "model": "courses.emaildomain",
+    "fields": {
+      "university": "UoA"
+    }
+  },
+  {
+    "pk": "vuw.ac.nz",
+    "model": "courses.emaildomain",
+    "fields": {
+      "university": "Vic"
+    }
+  },
+
+  {
+    "pk": 1,
+    "model": "courses.semester",
+    "fields": {
+      "university": "UoA",
+      "start_date": "2013-01-04",
+      "end_date": "2013-02-20",
+      "semester_name": "SS"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "courses.semester",
+    "fields": {
+      "university": "UoA",
+      "start_date": "2013-03-04",
+      "end_date": "2013-07-01",
+      "semester_name": "S1"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "courses.semester",
+    "fields": {
+      "university": "UoA",
+      "start_date": "2013-07-22",
+      "end_date": "2013-11-18",
+      "semester_name": "S2"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "courses.semester",
+    "fields": {
+      "university": "UoA",
+      "start_date": "2014-01-06",
+      "end_date": "2014-02-19",
+      "semester_name": "SS"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "courses.semester",
+    "fields": {
+      "university": "UoA",
+      "start_date": "2014-03-03",
+      "end_date": "2014-06-30",
+      "semester_name": "S1"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "courses.semester",
+    "fields": {
+      "university": "UoA",
+      "start_date": "2014-07-21",
+      "end_date": "2014-11-17",
+      "semester_name": "S2"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "courses.semester",
+    "fields": {
+      "university": "Vic",
+      "start_date": "2013-03-04",
+      "end_date": "2013-07-03",
+      "semester_name": "S1"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "courses.semester",
+    "fields": {
+      "university": "Vic",
+      "start_date": "2013-7-15",
+      "end_date": "2013-11-17",
+      "semester_name": "S2"
+    }
+  }
+]

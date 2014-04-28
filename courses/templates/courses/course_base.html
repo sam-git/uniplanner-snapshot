@@ -1,0 +1,12 @@
+{% extends "omicron/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+	{{ block.super }} 
+	<meta property="og:title" content="Join me in {{course.list_name}} on {{site.name}}"/>
+	<meta property="og:image" content="http://{{site.domain}}{% static 'login/facebook_image.png' %}"/>
+	<meta property="og:site_name" content="UniPlanner"/>
+	<meta property="og:description" content="{{course.list_name}}, {{course.semester.university}}, {{course.semester.get_semester_name_display}}, {{course.semester.year}}. {{site.name}} is course information by students, for students."/>
+{% endblock head %}
+
+{% block title %}{{course.list_name}}{% endblock %}

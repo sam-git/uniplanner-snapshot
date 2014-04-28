@@ -1,0 +1,164 @@
+{% load staticfiles %}
+
+<script src="{% static 'sortable/bootstrap-sortable.js' %}"></script>
+<link href="{% static 'sortable/bootstrap-sortable.css' %}" rel="stylesheet">
+<link href="{% static 'css/messages.css' %}" rel="stylesheet">
+<link href="{% static 'css/course.css' %}" rel="stylesheet">
+
+<div class='container content' id="test">
+	<div class="row">
+		<div class="col-lg-2 col-sm-2" id="side">
+			{% include "omicron/sidebar.html" %}
+		</div>
+		<div class="col-lg-9 col-sm-9 main-course">
+			<div id="page-title">
+				<h3><a class="tool-tip" data-placement="bottom" data-toggle="tooltip" title="{{course.semester.university}}">{{ course.course_subject }} {{ course.course_number }}</a></h3>
+					{% if join_link %}
+						<div style="margin:20px 0 20px 0; text-align: left;">
+							<h4 style="text-align: left;">You have not joined this course yet.</h4>
+							<button class="btn btn-primary" onclick="location.href='{{ join_link }}'"> Join {{object.list_name}} </button>
+						</div>
+					{% else %}
+						<button class="btn btn-primary" id="invite-btn" onclick="FB.ui({
+									method: 'send',
+									link: 'http://{{site.domain}}{{request.get_full_path}}',
+								});">
+							Invite Facebook friends <br> to {{ course.course_subject }} {{ course.course_number }}
+						</button>
+					{% endif %}
+			</div>
+			<img class="arrow" id="assig-course-arrow" src="{% static 'arrow.png' %}" data-toggle="collapse" data-target="#assignments" data-arrow="#assig-course-arrow"/>
+			<h4 id="assignment-title"><a id="assignment-title-link" href="#" data-toggle="collapse" data-target="#assignments" data-arrow="#assig-course-arrow">Assignments</a></h4>
+			{% if active_assignments %}
+				<div id="assignments" class="collapse in">
+					<table class='table table-bordered table-striped sortable'>
+						<thead>
+							<tr>
+								<th data-sort='asc'>Name</th>
+								<th data-defaultsort='asc'>Due Date</th>
+								<th data-sort='desc'>Weighting</th>
+								<th data-sort='desc'>Last Edited By</th>
+								{# <th data-sort='desc'>Deleted?</th> #}
+							</tr>
+						</thead>
+						<tbody>
+							{% for assignment in active_assignments %}
+								{% if join_link %}
+									{% include "courses/table_row_course_no_edit.html" with assessment=assignment %}
+								{% else %}
+									{% include "courses/table_row_course.html" with assessment=assignment %}
+								{% endif %}
+							{% endfor %}
+						</tbody>
+					</table>
+			{% else %}
+				<div id="assignments" class="collapse in">
+					{% if join_link %}
+						<p>There are no assignments at this time.</p>
+					{% else %}
+						<p>You have no assignments at this time.</p>
+					{% endif %}
+			{% endif %}
+					{% if join_link %}
+						
+					{% else %}
+						<p><a href="{% url 'courses:ass_create' course.id %}">Add an Assignment</a></p>
+					{% endif %}
+				</div>
+			<img class="arrow" id="test-course-arrow" src="{% static 'arrow.png' %}" data-toggle="collapse" data-target="#tests" data-arrow="#test-course-arrow"/>
+			<h4 id="test-title"><a id="test-title-link" href="#" data-toggle="collapse" data-target="#tests" data-arrow="#test-course-arrow">Tests</a></h4>
+			{% if active_tests %}
+				<div id="tests" class="collapse in">
+					<table id="tab" class='table table-bordered table-striped sortable'>
+						<thead>
+							<tr>
+								<th data-sort='asc'>Name</th>
+								<th data-defaultsort='asc'>Date</th>
+								<th data-sort='desc'>Weighting</th>
+								<th data-sort='desc'>Last Edited By</th>
+								 {#  <th data-sort='desc'>Deleted?</th> #}
+							</tr>
+						</thead>
+						<tbody>
+								{% for test in active_tests %}
+									{% if join_link %}
+										{% include "courses/table_row_course_no_edit.html" with assessment=test %}
+									{% else %}
+										{% include "courses/table_row_course.html" with assessment=test %}
+									{% endif %}
+								{% endfor %}
+						</tbody>
+					</table>
+			{% else %}
+				<div id="tests" class="collapse in">
+					{% if join_link %}
+						<p>There are no tests.</p>
+					{% else %}
+						<p>You have no tests.</p>
+					{% endif %}
+			{% endif %}
+					{% if join_link %}
+						
+					{% else %}
+						<p><a href="{% url 'courses:test_create' course.id %}">Add a Test</a></p>
+					{% endif %}
+				</div>
+
+			<div id="tests-base"></div>
+
+			{% if join_link %}
+				
+			{% else %}
+				<div style="color: #d1d1d1; padding-top: 20px">
+					<p>
+						{% if leave_link %}
+							<a data-toggle="modal" href="#leave-confirm" style="color: #a0c4d5">Leave Course</a><br>
+						{% endif %}
+						You joined this course on: {{date_joined}} <br>
+					</p>
+					<p>{{ course.list_name}} @ {{course.semester.university}}</p>
+				</div>
+			{% endif %}	
+
+		</div>
+		<div id="pic-column">
+			{# {% for i in "a" %} #}
+				{% for student in all_students_in_random_order %}
+				<div class="prof-pic">
+					<a href="http://www.facebook.com/{{student.profile_or_self.facebook_id}}" target="_blank"><img class="profile-pic tool-tip" data-placement="left" src="http://graph.facebook.com/{{student.profile_or_self.facebook_id}}/picture" title="{{student.facebook_name}}"/></a>
+					{# {{student.facebook_name}} #}
+				</div>
+				{% endfor %}
+			{# {% endfor %} #}
+		</div>
+	</div>
+
+</div>
+
+{% if join_link %}
+	
+{% else %}
+	<div class="modal fade" id="leave-confirm">
+		<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<p>Are you sure you want to leave?</p>
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+			<button type="button" onclick=location.href="{{ leave_link }}" class="btn btn-primary">Yes</button>
+			</div>
+		</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+{% endif %}
+
+<div id="message-container">
+	<div id="message" class="well">
+	<div id="exit-dia"><a id="exit-x" href="#">&times;</a></div>
+	{% include "omicron/incl_messages.html" %}
+	</div>
+</div>
+
+<script src="{% static 'js/courses.js' %}"></script>

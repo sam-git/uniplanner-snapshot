@@ -1,0 +1,21 @@
+<tr>
+	<td data-value='{{assessment.title}}'>
+		{{assessment.title}}
+	</td>
+	<td data-value='{{assessment.due_date|date:"Y m d"}} {{assessment.due_time|time:"Hi"}}'>
+		{% if assessment.due_date %}
+			{{assessment.due_date}} 
+			{% if assessment.due_time != None %} 
+				{{assessment.due_time}} 
+			{% endif %}
+		{% endif %}
+	</td>
+	<td data-value='{{assessment.weighting}}'> 
+		{% if  assessment.weighting  != None %}
+			{{assessment.weighting}} %
+		{% endif %}
+	</td>
+	<td data-value='{{assessment.last_edited_by.facebook_name}}'> 
+			{{assessment.last_edited_by.first_name}} {{assessment.last_edited_by.last_name}}
+	</td>
+</tr>

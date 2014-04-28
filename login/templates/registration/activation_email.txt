@@ -1,0 +1,12 @@
+Hi {{name}},
+
+Welcome to {{site.name}}!
+
+This email address has been used to create an account with {{site.name}}. 
+If this wasn't you, please ignore this email and the account will not be activated.
+
+Otherwise, click the link below to activate your account.
+http://{{site.domain}}{% url 'login:registration_activate' activation_key %}
+
+Thanks,
+The {{ site.name }} Team

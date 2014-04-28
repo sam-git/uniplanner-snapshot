@@ -1,0 +1,11 @@
+<h1>The Stats</h1>
+
+{{context}}
+{% autoescape off %}
+{% for d in data %}
+
+	{% for key, value in d.items %}
+    	{{ key }}:&emsp; {{ value }} <br>
+	{% endfor %}	
+{% endfor %}
+{% endautoescape %}

@@ -1,0 +1,17 @@
+{% extends "omicron/base.html" %}
+{% block content %}
+
+{% include "courses/assessment_form.html" %}
+
+
+<a href="{{asignment.get_absolute_url}}/delete">DELETE {{object}}</a>
+
+<br>
+<br>
+1{{assignment}}<br>  GOOD on Assignment Object
+2{{assessment}}<br>
+3{{test}}<br>   Good on a test object
+4{{object}}<br> GOOD on ANY OBJECT
+5{{instance}} <br>
+
+{% endblock content %}

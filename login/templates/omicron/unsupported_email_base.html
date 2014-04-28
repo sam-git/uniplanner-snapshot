@@ -1,0 +1,27 @@
+{% extends "omicron/base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<p>
+	{% if university %}
+		<b>{{university.name}}</b> is not currently supported.
+	{% else %}
+		Your university is currently unsupported.
+	{% endif %}
+	<br>
+	Would you like to be notified at <b>{{email}}</b> when your university is supported? <br>
+	</p>
+	{% block form_div %}
+	
+	{% endblock form_div %}
+</div>
+
+<style>
+#no-btn {
+	margin: -24px 0 150px 80px;
+}
+
+</style>
+
+{% endblock content %}

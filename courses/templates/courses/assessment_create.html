@@ -1,0 +1,10 @@
+{% extends "omicron/base.html" %}
+{% block content %}
+<div class="container" id="update-container">
+	<div class="well" id="update-well" style="text-align:center; width:500px">
+		<h3 style="margin-bottom:20px"/>Add {{assessment_type }} - {{course.list_name}}</h3>
+		{% include "courses/assessment_form.html" %}
+	</div>
+</div>
+
+{% endblock content %}

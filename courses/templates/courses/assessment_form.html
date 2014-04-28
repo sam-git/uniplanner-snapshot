@@ -1,0 +1,83 @@
+<form action="" method="post" style="margin-bottom:20px">{% csrf_token %} 
+	<div class="assess-form row">
+		<div>{{ form.non_field_errors }}</div>
+	</div>
+	<div>
+		{{ form.course }}
+	</div>
+	<div class="assess-form row">
+		<div class="col-sm-6 col-xs-6 assess-title">Title</div>
+		<div class="col-sm-6 col-xs-6 assess-input">
+			{{ form.title }}<i class="icon-question-sign question tool-tip" data-placement="right" data-toggle="tooltip" title="The title for the {{assessment_type}}."></i>
+			<span class="form-errors">{{ form.title.errors }}</span>
+		</div>
+	</div>
+	<div class="assess-form row">
+		<div class="col-sm-6 col-xs-6 assess-title">Due Date</div>
+		<div class="col-sm-6 col-xs-6 assess-input">
+			{{ form.due_date }}<i class="icon-question-sign question tool-tip" data-placement="right" data-toggle="tooltip" title="Must be in the current semester"></i>
+			<span class="form-errors">{{ form.due_date.errors }}</span>
+		</div>
+	</div>
+	<div class="assess-form row">
+		<div class="col-sm-6 col-xs-6 assess-title">Due Time</div>
+		<div class="col-sm-6 col-xs-6 assess-input">
+			{{ form.due_time }}<i class="icon-question-sign question tool-tip" data-placement="right" data-toggle="tooltip" title="In 24 hour format. Use a colon (:) as a separator. Can be empty."></i>
+			<span class="form-errors">{{ form.due_time.errors }}</span>
+		</div>
+	</div>
+	<div class="assess-form row">
+		<div class="col-sm-6 col-xs-6 assess-title">Weighting</div>
+		<div class="col-sm-6 col-xs-6 assess-input">
+			{{ form.weighting }}%<i class="icon-question-sign question tool-tip" data-placement="right" data-toggle="tooltip" title="A number out of 100. Can be empty, a decimal or 0."></i>
+			<span class="form-errors">{{ form.weighting.errors }}</span>
+		</div>
+	</div>
+
+	{% if form.private %}
+	<div class="assess-form row">
+		<div class="col-sm-6 col-xs-6 assess-title">Private</div>
+		<div class="col-sm-6 col-xs-6 assess-input">
+			{{ form.private }}<i class="icon-question-sign question tool-tip" data-placement="right" data-toggle="tooltip" title="Assignments marked as private only you can see."></i>
+			<span class="form-errors">{{ form.private.errors }}</span>
+		</div>
+	</div>
+	{% endif %}
+
+	<div style="margin-top:40px">
+		<input class="btn btn-primary" type="submit" value="Submit" style="margin-right:20px">
+		<a style="margin-left:-15px" href="{{ course.get_absolute_url }}">Cancel</a>
+	</div>
+</form>
+
+<script>
+	$("#update-well").css({
+		"margin-left": $("#update-container").width()/2 - 250
+	});
+</script>
+
+<style>
+	.assess-form {
+	  margin: 15px 0px 15px -110px;
+	}
+
+	.assess-title {
+	  text-align: right;
+	  padding: 0 0 0 0;
+	  font-size: 1.2em;
+	}
+
+	.assess-input {
+	  text-align: left;
+	}
+
+	.question {
+	  margin-left: 10px;
+	}
+
+	.form-errors {
+	  float: left;
+	  position: relative;
+	  margin-left: -30px;
+	}
+</style>

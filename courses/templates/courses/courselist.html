@@ -1,0 +1,22 @@
+{% if user.university.current_sems %}
+	{% if user.current_courses %}
+		{% for semester in user.university.current_sems %}
+			<h5 style="margin-top:0">{{semester.get_semester_name_display}}, {{semester.year}}</h5>
+
+			{% for current_course in user.current_courses %}
+
+				{% if  current_course.semester == semester %}
+					{% if current_course == course %}
+						<li style="list-style: none">- <b>{{current_course.list_name}}</b></li>
+					{% else %}
+						<li style="list-style: none">- <a href="{{ current_course.get_absolute_url }}">{{current_course.list_name}}</a></li>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% else %}
+		<p>You have not joined any courses for the current semester.</p>
+	{% endif %}
+{% else %}
+	<p>There are no current semesters.</p>
+{% endif %}

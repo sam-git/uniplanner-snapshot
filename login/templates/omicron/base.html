@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block head %}
+		<script src="{% static 'jQuery/jquery-1.9.1.min.js' %}"></script>
+
+		<link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+
+		<link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+		<script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+
+		<link href="{% static 'css/uniplanner.css' %}" rel="stylesheet">
+		<link href="{{ STATIC_URL }}css/facebook.css" type="text/css" rel="stylesheet" media="all" />
+
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+		<title>{% block title %}UniPlanner{% endblock %}</title>
+		{% endblock head %}
+	</head>
+	<body>
+		{% include "analyticstracking.html" %}
+		<div id="container">
+			<div class="navbar" id="navbar">
+				{% block navbar %}
+				
+				{% include "omicron/navbar.html" %}
+
+				{% endblock navbar %}
+			</div>
+			<div id="content">
+				{% block content %} {% endblock %}
+			</div>
+			<div class = "container">
+				<div class="footer">
+					If you have any suggestions, bug reports or general feedback, get in touch with us at <a href="mailto:uniplanner.net@gmail.com">uniplanner.net@gmail.com</a> &nbsp;&nbsp;&nbsp;&nbsp;<b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;UniPlanner © 2013 
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>

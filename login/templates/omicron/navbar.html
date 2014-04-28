@@ -1,0 +1,68 @@
+{% load staticfiles %}
+
+{% include 'django_facebook/_facebook_js.html' %}
+<link href="{% static 'css/navbar.css' %}" rel="stylesheet">
+
+<div id="anchor"></div>
+<div class="navbar-inner">
+	<div class="container"  id="nav-container">
+		<div id="left-nav" class="nav pull-left">
+			<h2 id='title'><a id='title' href="{% url 'login:index' %}">UniPlanner</a></h2><h3 id='beta-title' class="tool-tip" data-placement="right" data-toggle="tooltip" title="UniPlanner may still have a few bugs. Help us fix them by notifying us if you find one!">Beta</h3>
+		</div>
+		
+		<div class="nav pull-right">
+			{% if user.is_authenticated %}
+
+			<div class="right-nav">
+				<img id="profile-pic" src="http://graph.facebook.com/{{user.profile_or_self.facebook_id}}/picture/" title="It's you!" />
+			</div>
+			<div class="right-nav">
+				<p id="nav-name">{{user.facebook_name}}</p>
+			</div>
+			<div class="right-nav">
+				<button class="btn btn-fb" onclick="location.href='{% url 'auth_logout' %}?next={% url 'login:index' %}';">Logout | f</button>
+			</div>
+
+			{% else %}
+			<form action="{% url 'facebook_connect' %}" method="post">
+				{% csrf_token %}
+				<input type="hidden" value={% if request.GET %}
+					"{{request.GET.next}}"
+				{% else %}"{{request.path}}"{% endif %}
+				name="next" />
+				
+				<!--
+				use error next for a seperate error page
+				<input type="hidden" value="/error/" name="error_next" />
+				-->
+				<div id="facebook_login_js">
+					<input class="btn btn-fb" onclick="F.connect(this.parentNode.parentNode); return false;" type="button" value="Log in | f" /><br />
+				</div>
+			</form>
+			<!-- <li><button id="navb" class="btn btn-primary" href="##" onclick="F.connect(this.parentNode.parentNode); return false;" type="button">Login | f</button></li> -->
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+<script src="{% static 'js/uniplanner.js' %}"></script>
+
+<script>
+	$(document).ready( function( ){
+		{% if messages %}
+			if ($("#message").width() > $(window).width()-20){
+				$("#message").width($("#message-container").width()-300);
+			}
+			$("#message").css({
+				"margin-left": -($("#message").width() + 40)/2,
+				"left": "50%",
+				"word-wrap": "break-word"
+			})
+			.fadeIn('slow', function(){$("#message").css({"display": "block"})
+			})
+			.animate({opacity: 1.0}, 3000)
+			.fadeOut('slow', function(){$("#message").css({"display": "none"})
+			});
+		{% endif %}
+	});
+</script>

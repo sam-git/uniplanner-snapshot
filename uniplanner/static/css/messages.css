@@ -1,0 +1,23 @@
+#message-container {
+	text-align: center;
+	z-index: 500;
+}
+
+#exit-dia {
+	text-align: right;
+	margin-top: -20px;
+	margin-right: -15px;
+}
+
+#exit-dia a {
+	color: black;
+}
+
+#message {
+	height: auto;
+	position: fixed;
+	top: 100px;
+	z-index: 1040;
+	display: none;
+	overflow: auto;
+}

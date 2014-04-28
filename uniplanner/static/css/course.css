@@ -1,0 +1,58 @@
+.prof-pic { /*For course pages*/
+  float: right;
+}
+
+.profile-pic { /*Course*/
+  margin: 5px 0px 5px 15px;
+}
+
+.main-course { /*course*/
+  height: auto;
+  padding: 0 20px 50px 30px;
+  margin-bottom: 20px;
+}
+
+#pic-column { /*Course*/
+  margin-top: -8px;
+  margin-left: 120px;
+}
+
+#page-title h3, #page-title h4{ /*course*/
+  margin: 0px 0 0 0;
+  text-align: center;
+}
+
+#page-title h3 a{ /*course*/
+  color: black;
+}
+
+#page-title h3 a:hover { /*course*/
+  text-decoration: none;
+}
+
+#assig-course-arrow { /*course*/
+  margin: 12px 0 0 -19px;
+}
+
+#test-course-arrow { /*course*/
+  margin: 34px 0 0 -19px;
+}
+
+#invite-btn { /*course*/
+  padding: 5px 5px 5px 5px;
+  float: right;
+  font-size: 0.9em;
+  position: relative;
+  margin-top: -30px;
+  background-color: #3B5998;
+  color: white;
+}
+
+#invite-btn:hover { /*course*/
+  background-color: #2f477a;
+  color: white;
+}
+
+#side { /*course*/
+  border-right: 2px solid #7b7c7f;
+}

@@ -1,0 +1,14 @@
+{% extends "courses/course_base.html" %}
+
+{% block content %}
+
+	<div class="container">
+		<div class="well col-lg-offset-3 col-lg-6" style="margin-top: 30px; margin-bottom: 50px">
+			<h2>{{ course.list_name}}</h2>
+			<h4>{{course.semester.university}}</h4>
+			<h5>{{course.student_set.all|length }} members</h5>
+			<p>To view this course, log in to UniPlanner with an email address from <i>{{course.semester.university}}</i>.</p>
+		</div>
+	</div>
+
+{% endblock content %}

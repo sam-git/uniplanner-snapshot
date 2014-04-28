@@ -1,0 +1,140 @@
+[
+
+
+{
+ "pk": 2, 
+ "model": "django_facebook.facebookcustomuser", 
+ "fields": {
+  "last_name": "Baoson", 
+  "image": "", 
+  "is_staff": false, 
+  "about_me": null, 
+  "user_permissions": [], 
+  "date_joined": "2013-08-20T02:35:40.244Z", 
+  "first_name": "Ruth", 
+  "facebook_name": "Ruth Amfdefebigjg Baoson", 
+  "is_superuser": false, 
+  "state": null, 
+  "date_of_birth": "1980-08-08", 
+  "last_login": "2013-08-20T02:35:40.530Z", 
+  "facebook_id": 100006456529707, 
+  "new_token_required": false, 
+  "email": "fknikjv_baoson_1376361727@tfbnw.net", 
+  "website_url": null, 
+  "username": "fknikjv_baoson_1376361727", 
+  "is_active": true, 
+  "facebook_profile_url": "https://www.facebook.com/profile.php?id=100006456529707", 
+  "groups": [], 
+  "password": "pbkdf2_sha256$10000$eP4PUl7Z9XiG$hg/150qrdUcVJJZ/lwEH4u3FLx9sZo0ImFDzwsLSFbM=", 
+  "access_token": "CAAEyYP01oZCsBACAo2ZCxczYuI95vHZC6OGklHan1TAGjkyE9B6qdbqVvoyuBWbMjSost9XxZBwj7kK7opRZC7bIMZCbd6kS3jGyOl2L2KtP6SnbfcCrY1gpfCpLZBHRfzKDJf54rERoDHjKZAnRXinjFaA0OCuZCrzgZD", 
+  "gender": "f", 
+  "blog_url": null, 
+  "raw_data": "{\"first_name\": \"Ruth\", \"last_name\": \"Baoson\", \"middle_name\": \"Amfdefebigjg\", \"name\": \"Ruth Amfdefebigjg Baoson\", \"locale\": \"en_GB\", \"gender\": \"female\", \"image\": \"https://graph.facebook.com/me/picture?access_token=CAAEyYP01oZCsBAHlanVkiNK1wty4WqwPhfMGkaNLiLLnmhY8qt3LVDtxLzP5uGOpbSO2BIm8PTslwCp85XqeEz2SNdfMIMGcw1CLGfCXpeUDNh9ZBbsVoFZBPyKKvBmVWAFzslSgvdPbAG7vibxWmfJExIHK8QZD&type=large\", \"email\": \"fknikjv_baoson_1376361727@tfbnw.net\", \"birthday\": \"08/08/1980\", \"link\": \"https://www.facebook.com/profile.php?id=100006456529707\", \"image_thumb\": \"https://graph.facebook.com/me/picture?access_token=CAAEyYP01oZCsBAHlanVkiNK1wty4WqwPhfMGkaNLiLLnmhY8qt3LVDtxLzP5uGOpbSO2BIm8PTslwCp85XqeEz2SNdfMIMGcw1CLGfCXpeUDNh9ZBbsVoFZBPyKKvBmVWAFzslSgvdPbAG7vibxWmfJExIHK8QZD\", \"timezone\": 12, \"updated_time\": \"2013-08-13T02:42:18+0000\", \"id\": \"100006456529707\"}", 
+  "facebook_open_graph": null
+ }
+},
+{
+ "pk": 3, 
+ "model": "django_facebook.facebookcustomuser", 
+ "fields": {
+  "last_name": "Carrierosky", 
+  "image": "", 
+  "is_staff": false, 
+  "about_me": null, 
+  "user_permissions": [], 
+  "date_joined": "2013-08-20T02:36:03.163Z", 
+  "first_name": "John", 
+  "facebook_name": "John Amfdfdjhjcda Carrierosky", 
+  "is_superuser": false, 
+  "state": null, 
+  "date_of_birth": "1980-08-08", 
+  "last_login": "2013-08-20T02:36:03.450Z", 
+  "facebook_id": 100006464080341, 
+  "new_token_required": false, 
+  "email": "zkqnteh_carrierosky_1375491281@tfbnw.net", 
+  "website_url": null, 
+  "username": "zkqnteh_carrierosky_1375491281", 
+  "is_active": true, 
+  "facebook_profile_url": "https://www.facebook.com/profile.php?id=100006464080341", 
+  "groups": [], 
+  "password": "pbkdf2_sha256$10000$nszeVYb8nLUL$GHo5pCLuwuqi1e/FlAJXldhOsJDAU/4P17bnThGBkis=", 
+  "access_token": "CAAEyYP01oZCsBAForvkTynwJc32MYhL3jLb2EOBKQGuHL1hKKCZBDPBUhKBOuihGZBeop4dKrlVLzfUgnVk9hWZBcn3AmAYp0wpKjwM4cLYvlkFbpchHkMcf8w8urvcIqLgpcwzUztmCKG82qkZBFj8ZCD9o7LvBsZD", 
+  "gender": "m", 
+  "blog_url": null, 
+  "raw_data": "{\"first_name\": \"John\", \"last_name\": \"Carrierosky\", \"middle_name\": \"Amfdfdjhjcda\", \"name\": \"John Amfdfdjhjcda Carrierosky\", \"locale\": \"en_US\", \"gender\": \"male\", \"image\": \"https://graph.facebook.com/me/picture?access_token=CAAEyYP01oZCsBAHFvCnMD6GoCVgosimZByYn8w0yY1zEURQZAFuC1zNXDw7iDc7r41Ptw8lfgZCbZCuU2esw95gnoPs8aE8a7amW10mMMp0BdaYVgQ7kQClb1lmIs0pzmmRDQDFSm6Ji7zDKW8KHL4t4f7NpVlesZD&type=large\", \"email\": \"zkqnteh_carrierosky_1375491281@tfbnw.net\", \"birthday\": \"08/08/1980\", \"link\": \"https://www.facebook.com/profile.php?id=100006464080341\", \"image_thumb\": \"https://graph.facebook.com/me/picture?access_token=CAAEyYP01oZCsBAHFvCnMD6GoCVgosimZByYn8w0yY1zEURQZAFuC1zNXDw7iDc7r41Ptw8lfgZCbZCuU2esw95gnoPs8aE8a7amW10mMMp0BdaYVgQ7kQClb1lmIs0pzmmRDQDFSm6Ji7zDKW8KHL4t4f7NpVlesZD\", \"timezone\": 12, \"updated_time\": \"2013-08-03T00:54:42+0000\", \"id\": \"100006464080341\"}", 
+  "facebook_open_graph": null
+ }
+},
+{
+ "pk": 4, 
+ "model": "django_facebook.facebookcustomuser", 
+ "fields": {
+  "last_name": "Sadanson", 
+  "image": "", 
+  "is_staff": false, 
+  "about_me": null, 
+  "user_permissions": [], 
+  "date_joined": "2013-08-20T02:36:15.313Z", 
+  "first_name": "Mary", 
+  "facebook_name": "Mary Amfebabbhije Sadanson", 
+  "is_superuser": false, 
+  "state": null, 
+  "date_of_birth": "1980-08-08", 
+  "last_login": "2013-08-20T02:36:15.594Z", 
+  "facebook_id": 100006521228905, 
+  "new_token_required": false, 
+  "email": "riyczfw_sadanson_1376532336@tfbnw.net", 
+  "website_url": null, 
+  "username": "riyczfw_sadanson_1376532336", 
+  "is_active": true, 
+  "facebook_profile_url": "https://www.facebook.com/profile.php?id=100006521228905", 
+  "groups": [], 
+  "password": "pbkdf2_sha256$10000$rVCJVByMnc5f$leoSak/SULmb0NP+fG1eFP1eb1zZN+5TwtKyR2pi4dw=", 
+  "access_token": "CAAEyYP01oZCsBANYkwyJdPpNbZC8koTw5RrSCBD4pN7ACiUxQqk1z5TQvpZCubJao1ZCfNUnU2BfYNaZARSmAj8vbiqLuLoTOxFKR6ROz83U9gfbn5y7ZBLPQLuUa16H321HBckgPewgCnZAxRCHsaL", 
+  "gender": "f", 
+  "blog_url": null, 
+  "raw_data": "{\"first_name\": \"Mary\", \"last_name\": \"Sadanson\", \"middle_name\": \"Amfebabbhije\", \"name\": \"Mary Amfebabbhije Sadanson\", \"locale\": \"en_US\", \"gender\": \"female\", \"image\": \"https://graph.facebook.com/me/picture?access_token=CAAEyYP01oZCsBAPh756hmU2HGCzwgVPRvVMaAYHhCbrUwVYGhq2TSZC7Edb9NfzoZCNv1OLh2eUTpFfOD164HYyLvRZAYBrXnkPZBUxo1yKIbO4hdnFDXUdC4GKkOF4136OvGliWv2plOxOz6mRsSq2RXVaA380oZD&type=large\", \"email\": \"riyczfw_sadanson_1376532336@tfbnw.net\", \"birthday\": \"08/08/1980\", \"link\": \"https://www.facebook.com/profile.php?id=100006521228905\", \"image_thumb\": \"https://graph.facebook.com/me/picture?access_token=CAAEyYP01oZCsBAPh756hmU2HGCzwgVPRvVMaAYHhCbrUwVYGhq2TSZC7Edb9NfzoZCNv1OLh2eUTpFfOD164HYyLvRZAYBrXnkPZBUxo1yKIbO4hdnFDXUdC4GKkOF4136OvGliWv2plOxOz6mRsSq2RXVaA380oZD\", \"timezone\": 0, \"updated_time\": \"2013-08-15T02:05:46+0000\", \"id\": \"100006521228905\"}", 
+  "facebook_open_graph": null
+ }
+},
+
+{
+ "pk": 2, 
+ "model": "login.student", 
+ "fields": {
+  "uni_email": "2@auckland.ac.nz", 
+  "receive_uni_notification": false, 
+  "university": "UoA", 
+  "uni_email_status": "ACTV", 
+  "activation_key": "", 
+  "groups": [], 
+  "user_permissions": []
+ }
+},
+{
+ "pk": 3, 
+ "model": "login.student", 
+ "fields": {
+  "uni_email": "3@auckland.ac.nz", 
+  "receive_uni_notification": false, 
+  "university": "UoA", 
+  "uni_email_status": "ACTV", 
+  "activation_key": "", 
+  "groups": [], 
+  "user_permissions": []
+ }
+},
+{
+ "pk": 4, 
+ "model": "login.student", 
+ "fields": {
+  "uni_email": "4@auckland.ac.nz", 
+  "receive_uni_notification": false, 
+  "university": "UoA", 
+  "uni_email_status": "ACTV", 
+  "activation_key": "", 
+  "groups": [], 
+  "user_permissions": []
+ }
+}
+]

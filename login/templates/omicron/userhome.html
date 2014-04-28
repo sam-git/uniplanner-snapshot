@@ -1,0 +1,149 @@
+{% extends "omicron/base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+	<script src="{% static 'sortable/bootstrap-sortable.js' %}"></script>
+	<link href="{% static 'sortable/bootstrap-sortable.css' %}" rel="stylesheet">
+	<link href="{% static 'css/messages.css' %}" rel="stylesheet">
+	<link href="{% static 'css/userhome.css' %}" rel="stylesheet">
+
+	<div class='container content' id="test">
+		<div class="row">
+			<div class="col-lg-2 col-sm-2">
+				{% include "omicron/sidebar.html" %}
+			</div>
+			<div class="col-lg-10 col-sm-10 main-userhome">
+				<div>
+					<div id="page-title-home">
+						<h3>Overview</h3>
+					</div>
+					<div id="time-date">
+						{% now "H:i" %} {% now "l jS F" %}, {% now " Y " %}
+					</div>
+				</div>
+				<img class="arrow" id="next7-arrow" src="{% static 'arrow.png' %}" data-toggle="collapse" data-target="#all" data-arrow="#next7-arrow"/>
+				
+				<h4 id="all-title"><a id="all-title-link" href="#" data-toggle="collapse" data-target="#all" data-arrow="#next7-arrow">Next 7 Days' Deadlines</a></h4>
+				<div id="all" class="collapse in">
+				{% if user.current_courses %}
+					{% if latest|length > 0 %}
+						<table class='table table-bordered table-striped sortable'>
+							<thead>
+								<tr>
+									<th data-sort='asc'>Name</th>
+									<th data-sort='asc'>Course</th>
+									<th data-defaultsort='asc'>Date</th>
+									<th data-sort='desc'>Weighting</th>
+								</tr>
+							</thead>
+							<tbody>
+							{% for latest_assessment in latest %}
+								<tr>
+								{% include "courses/table_row_home.html" with assessment=latest_assessment %}
+								</tr>
+							{% endfor %}
+							</tbody>
+						</table>
+					{% else %}
+						<p>Take a break! Nothing due in the next 7 days.</p>
+					{% endif %}
+				{% endif %}
+				</div>
+
+				<img class="arrow" id="assig-arrow" src="{% static 'arrow.png' %}" data-toggle="collapse" data-target="#assignments" data-arrow="#assig-arrow"/>
+				<h4 id="assignment-title-home"><a id="assignment-title-link" href="#" data-toggle="collapse" data-target="#assignments" data-arrow="#assig-arrow">All Upcoming Assignments</a></h4>
+				<div id="assignments" class="collapse in">
+					{% if user.university.current_sems %}
+						{% if user.current_courses %}
+							{% if assignments|length > 0 %}
+								<table class='table table-bordered table-striped sortable'>
+									<thead>
+										<tr>
+											<th data-sort='asc'>Name</th>
+											<th data-sort='asc'>Course</th>
+											<th data-defaultsort='asc'>Due Date</th>
+											<th data-sort='desc'>Weighting</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for assignment in assignments %}
+										<tr>
+										{% include "courses/table_row_home.html" with assessment=assignment %}
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							{% else %}
+								<p>You have no upcoming assigments.</p>
+							{% endif %}
+						{% else %}
+							<p>You have not joined any courses for the current semester.</p>
+						{% endif %}
+					{% else %}
+						<p>There are no current semesters.</p>
+					{% endif %}
+				</div>
+
+				<img class="arrow" id="test-arrow" src="{% static 'arrow.png' %}" data-toggle="collapse" data-target="#tests" data-arrow="#test-arrow"/>
+				<h4 id="test-title"><a id="test-title-link" href="#" data-toggle="collapse" data-target="#tests" data-arrow="#test-arrow">All Upcoming Tests</a></h4>
+				<div id="tests" class="collapse in">
+
+					{% if user.university.current_sems %}
+						{% if user.current_courses %}
+							{% if tests|length > 0 %}
+								<table class='table table-bordered table-striped sortable'>
+									<thead>
+										<tr>
+											<th data-sort='asc'>Name</th>
+											<th data-sort='asc'>Course</th>
+											<th data-defaultsort='asc'>Date</th>
+											<th data-sort='desc'>Weighting</th>
+										</tr>
+									</thead>
+									<tbody>
+									{% for test in tests %}
+										<tr>
+										{% include "courses/table_row_home.html" with assessment=test %}
+										</tr>
+									{% endfor %}
+									</tbody>
+								</table>
+							{% else %}
+								<p>You have no upcoming tests.</p>
+							{% endif %}
+						{% else %}
+							<p>You have not joined any courses for the current semester.</p>
+						{% endif %}
+					{% else %}
+						<p>There are no current semesters.</p>
+					{% endif %}
+
+				</div>
+				
+				<script>
+					$("#test-title-link").click(function(event){
+						event.preventDefault();
+					});
+					$("#assignment-title-link").click(function(event){
+						event.preventDefault();
+					})
+					$("#all-title-link").click(function(event){
+						event.preventDefault();
+					})
+				</script>
+
+				<div id="tests-base"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="message-container">
+		<div id="message" class="well">
+			<div id="exit-dia"><a href="">x</a></div>
+			{% include "omicron/incl_messages.html" %}
+		</div>
+	</div>
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+[
+{
+ "pk": 1, 
+ "model": "courses.course", 
+ "fields": {
+  "course_name": "", 
+  "course_subject": "SOFTENG", 
+  "created_on": "2013-08-20T03:21:55.410Z", 
+  "created_by": 1, 
+  "semester": 3, 
+  "course_number": 752
+ }
+},
+{
+ "pk": 1, 
+ "model": "courses.usersincourses", 
+ "fields": {
+  "course": 1, 
+  "student": 1, 
+  "date_joined": "2013-08-20T03:21:55.418Z"
+ }
+},
+{
+ "pk": 3, 
+ "model": "courses.usersincourses", 
+ "fields": {
+  "course": 1, 
+  "student": 2, 
+  "date_joined": "2013-08-20T03:25:44.131Z"
+ }
+},
+{
+ "pk": 4, 
+ "model": "courses.usersincourses", 
+ "fields": {
+  "course": 1, 
+  "student": 3, 
+  "date_joined": "2013-08-20T03:25:44.131Z"
+ }
+},
+{
+ "pk": 5, 
+ "model": "courses.usersincourses", 
+ "fields": {
+  "course": 1, 
+  "student": 4, 
+  "date_joined": "2013-08-20T03:25:44.131Z"
+ }
+}
+]

@@ -1,0 +1,17 @@
+{% extends "omicron/base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="well" style="margin-bottom:20px;">
+	An email has been sent to <b>{{user.uni_email}}</b> and will arrive shortly. <br>
+	Click the link in the email to activate your account. <br>
+	<i>To avoid having to log in again, check your email in the same browser as UniPlanner.</i>
+	</div>
+	<p style="font-size:0.9em">
+	If the above email address is incorrect, click <a style="color:black" href="{% url 'login:reset_email' %}"><u>here</u></a> to change your university email address.
+	</p>
+	
+</div>
+
+{% endblock content %}

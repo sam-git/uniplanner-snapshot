@@ -1,0 +1,123 @@
+
+h4 {
+  margin: 0 0 0 0;
+  padding: 10px 0 10px 0;
+}
+
+/******** Classes ********/
+
+.container { /**/
+  max-width: 992px;
+  min-width: 500px;
+}
+
+.tooltip-inner { /**/
+  color: black;
+  background-color: #c3c3c3;
+  min-width: 120px;
+}
+
+.tooltip.bottom .tooltip-arrow { /**/
+  /*left: 90%;*/
+  border-bottom-color: #c3c3c3;
+}
+
+.tooltip.right .tooltip-arrow { /**/
+  /*left: 90%;*/
+  border-right-color: #c3c3c3;
+}
+
+.tooltip.left .tooltip-inner { /**/
+  background-color: black;
+  color: white;
+}
+
+.footer { /**/
+  margin: 10px -0px 0 -0px;
+  padding: 10px 20px 0 20px;
+  border-top: 1px solid black;
+  height: 100px;
+}
+
+.arrow { /**/
+  height: 15px;
+  position: relative;
+  float: left;
+}
+
+/********** Media Queries ***********/
+
+@media (max-width: 767px) {
+
+  #signupwell {
+    height: auto;
+  }
+
+  .main {
+  border-left: none;
+  padding: 0 10px 0 10px;
+  }
+
+  #sidebar {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  #nav-name {
+    display: none;
+  }
+
+  #side {
+    height: auto;
+  }
+}
+
+@media (min-width: 600px) {
+
+  .modal-dialog {
+      right: auto;
+      left: 55%;
+      width: 480px;
+      padding-top: 100px;
+      padding-bottom: 30px;
+      /*margin-left: -280px;*/
+  }
+
+}
+
+/*************IDs**************/
+
+#assignment-title-home { /**/ /*course+user*/
+  padding-top: 30px;
+  border-top: 2px solid #7b7c7f;
+}
+
+#assignment-title-home a, #assignment-title a { /**/ /*course+user*/
+  color: black;
+}
+
+#assignment-title-link:hover { /**/ /*course+user*/
+  color: #7f7b78;
+}
+
+#test-title { /**/ /*course+user*/
+  padding-top: 30px;
+  border-top: 2px solid #7b7c7f;
+}
+
+#test-title a { /**/ /*course+user*/
+  color: black;
+}
+
+#test-title-link:hover { /**/ /*course+user*/
+  color: #7f7b78;
+}
+
+#tests-base { /**/ /*course+user*/
+  border-top: 2px solid #7b7c7f;
+}

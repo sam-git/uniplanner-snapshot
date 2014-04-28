@@ -1,0 +1,75 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+		<link href="{% static 'bootstrap-3.0.0/dist/css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/uniplanner.css' %}" rel="stylesheet">
+		<link href="{{ STATIC_URL }}css/facebook.css" type="text/css" rel="stylesheet" media="all" />
+
+		<script src="{% static 'jQuery/jquery-1.9.1.js' %}"></script>
+
+		<link href="{% static 'animate/animate.css' %}" rel="stylesheet">
+		<script src="{% static 'jQuery/jquery-1.9.1.js' %}"></script>
+		<script src="{% static 'bootstrap-3.0.0/dist/js/bootstrap.js' %}"></script>
+
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<!-- Facebook Meta Tags -->
+	<meta property="og:title" content="Course XXX"/>
+	<meta property="og:image" content="{% static 'http://{{site.domain}}favicon.ico' %}"/>
+
+	<meta property="og:site_name" content="UniPlanner"/>
+	<meta property="og:description" content="Course XXX,\n <br> Univerirty YYY"/>
+	
+		<title>{% block title %}UniPlanner{% endblock %}</title>
+	</head>
+	<body>
+{% include 'django_facebook/_facebook_js.html' %}
+HELLO#
+
+
+
+<a class="module-right button light" 
+onclick="FB.ui({
+  method: 'send',
+  name: 'Follow me on Fashiolista', 
+  link: 'http://{{site.domain}}{{request.get_full_path}}',
+  picture:'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/276519_104958162837_864712231_q.jpg', 
+  to: '668851604',
+});">
+invite
+</a>
+
+http://{{site.domain}}
+link: 'http://uniplanner.net{{request.get_full_path}}',
+<br>
+<br>
+{{request.get_full_path}}
+<br>
+{{ request.build_absolute_uri }}{{ request.get_absolute_url }}
+<br>
+<br>
+
+
+
+
+
+<p>
+"FB.ui(
+{
+method: 'send', 
+name: 'Follow me on Fashiolista', 
+link: 'http://www.fashiolista.com/invite_minimal/?newimage=1&utm_campaign=fb_invite_message&utm_source=facebook&utm_medium=fb_invite&fuid=1467974', 
+picture:'http://u.fashiocdn.com/images/users/0/5/B/q/x/0.150x150.C.jpg?sign=pB7RAm-qHOZNzCRr3XSPvKrEBx8', 
+to: '668851604'
+}, 
+invite_cb); 
+faq.trackSocial('Facebook', 'Invite Friend');" 
+</p>
+
+"FB.ui({
+  method: 'send',
+  link: 'http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html',
+});"
+
+</body>

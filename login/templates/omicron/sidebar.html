@@ -1,0 +1,137 @@
+<div id="sidebar">
+	{% if course %}
+		<h4><a href="{% url 'login:index' %}">Overview</a></h4>
+	{% else %}
+		<h4>Overview</h4>
+	{% endif %}
+	<ul class="course-list">
+		{% for sem in user.get_sidebar_data %}
+			<h5 style="margin-top:0">{{sem.semester.get_semester_name_display}}, {{sem.semester.year}}</h5>
+
+			{% for sem_course in sem.courses %}
+				{% if sem_course == course %}
+					<li style="list-style: none">- <b>{{sem_course.list_name}}</b></li>
+				{% else %}
+					<li style="list-style: none">- <a href="{{ sem_course.get_absolute_url }}">{{sem_course.list_name}}</a></li>
+				{% endif %}
+
+			{% empty %}
+				<p>You have not joined any courses for the current semester.</p>
+			{% endfor %}
+
+			<button class="btn btn-primary" data-toggle="modal" data-target="#course-add{{ forloop.counter }}" style="margin-top:10px;">Add Course</button>
+		
+			<div class="modal fade" id="course-add{{ forloop.counter }}">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					
+						<div class="modal-header">
+						  <button type="button" class="close" id="x-modal" data-dismiss="modal" aria-hidden="true">&times;</button>
+						  <h4 class="modal-title">Add a Course</h4>
+						</div>
+
+						<form id="course-form{{ forloop.counter }}" action="{% url 'courses:addCourse' %}" method="post" >
+							<div class="modal-body">{% csrf_token %} 
+								<div id="{{forloop.counter}}-non_field_errors" style="text-align: center; color:#8e2030; margin-bottom:20px">
+								{# 	{{sem.add_course_form.non_field_errors}} #}
+								</div>
+
+								<div>
+									{{ sem.add_course_form.semester }}
+								</div>
+
+								<div id="course-subj" class="row">
+									<p class="col-sm-6 col-xs-6 add-course-form">Course Subject:</p> <p class="col-sm-6 col-xs-6">{{ sem.add_course_form.course_subject }}</p>
+								<div id="{{forloop.counter}}-course_subject_errors" style="text-align: center; color:#8e2030">
+									{# {{sem.add_course_form.course_subject.errors}} #}
+								</div>
+								</div>
+
+									
+								<div id="course-numb" class="row">
+									<p class="col-sm-6 col-xs-6 add-course-form">Course Number:</p> <p class="col-sm-6 col-xs-6">{{ sem.add_course_form.course_number }}</p>
+								<div id="{{forloop.counter}}-course_number_errors" style="text-align: center; color:#8e2030">
+								{# 	{{sem.add_course_form.course_number.errors}} #}
+								</div>
+								</div>
+
+									
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" id="close-modal" data-dismiss="modal">Close</button>
+								<input type="submit" class="btn btn-primary" value="Submit" />
+							</div>
+						</form>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div>
+						
+			<script>
+				$(document).ready(function(){
+					$("#course-form{{ forloop.counter }}").submit(function() {
+						//clear the errors
+						$("#{{forloop.counter}}-course_subject_errors").html("")
+						$("#{{forloop.counter}}-course_number_errors").html("")
+						$("#{{forloop.counter}}-non_field_errors").html("")
+						//Do the AJAX post
+						$.post($("#course-form{{ forloop.counter }}").attr("action"), 
+							$("#course-form{{ forloop.counter }}").serialize(), 
+							function(data){
+								if (data.errors) {
+									if (data.errors.course_subject) {
+										// alert(data.errors.course_subject)
+										$("#{{forloop.counter}}-course_subject_errors").html(data.errors.course_subject)
+									}
+									if (data.errors.course_number) {
+										$("#{{forloop.counter}}-course_number_errors").html(data.errors.course_number)
+									}
+									if (data.errors.__all__) {
+										$("#{{forloop.counter}}-non_field_errors").html(data.errors.__all__)
+									}
+									// $('#message{{ forloop.counter }}').html('Error: ' + data.errors.show()).addClass('error').css('visibility','visible');
+								} else {
+									// alert("success!");
+									window.location.href = data.course_url;
+								}
+							// alert("DONE!")
+							
+						});
+						//Important. Stop the normal POST
+						return false;
+					});
+				});
+
+				$("#close-modal").click(function() {
+					$("#{{forloop.counter}}-course_subject_errors").html("")
+					$("#{{forloop.counter}}-course_number_errors").html("")
+					$("#{{forloop.counter}}-non_field_errors").html("")
+				});
+				$("#x-modal").click(function() {
+					$("#{{forloop.counter}}-course_subject_errors").html("")
+					$("#{{forloop.counter}}-course_number_errors").html("")
+					$("#{{forloop.counter}}-non_field_errors").html("")
+				})
+			</script>
+
+		{% empty %}
+			<p>There are no current semesters.</p>
+		{% endfor %}
+	</ul>
+</div>
+
+<style>
+	.course-list { /*Sidebar*/
+	  padding-left: 0px;
+	  padding-top: 10px;
+	}
+
+	.add-course-form { /*sidebar*/
+	  text-align: right;
+	  font-size: 1.1em;
+	  padding-right: 0;
+	}
+
+	#course-subj { /*Sidebar*/
+	  margin-bottom: 40px;
+	}
+</style>

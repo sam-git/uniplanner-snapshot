@@ -1,0 +1,46 @@
+.main-userhome { /*userhome*/
+  border-left: 2px solid #7b7c7f;
+  height: auto;
+  padding: 0 70px 50px 70px;
+  margin-bottom: 20px;
+}
+
+#page-title-home{ /*userhome*/
+  text-align: right;
+  position: relative;
+}
+
+#page-title-home h3{ /*userhome*/
+  margin:0 0 0px 0;
+}
+
+#time-date { /*userhome*/
+  color: #9f9f9f;
+  position: relative;
+  text-align: right;
+  z-index: -10;
+}
+
+#all-title { /*userhome*/
+  margin-top: -20px;
+}
+
+#all-title a { /*userhome*/
+  color: black;
+}
+
+#all-title-link:hover { /*userhome*/
+  color: #7f7b78;
+}
+
+#next7-arrow { /*userhome*/
+  margin: -8px 0 0 -23px;
+}
+
+#assig-arrow { /*userhome*/
+  margin: 33px 0 0 -23px;
+}
+
+#test-arrow { /*userhome*/
+  margin: 33px 0 0 -23px;
+}

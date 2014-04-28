@@ -1,0 +1,65 @@
+<tr>
+	{% if assessment.is_in_past %}
+		<td data-value='{{assessment.title}}'>
+			<span style="color:#7e7e7e">{{assessment.title}}</span><a href="{{assessment.get_absolute_url}}edit" style="padding-left: 10px; color:#8195be">Edit</a>
+			
+			{% if assessment.private != None%}
+				{% if assessment.private == True %}
+					<div id="private-lock" class="tool-tip" data-placement="right" data-toggle="tooltip" title="Marked as private. Only you can see this.">
+						<i class="icon-lock"></i>
+					</div>
+				{% endif %}
+			{% endif %}
+		</td>
+		<td data-value='{{assessment.due_date|date:"Y m d"}} {{assessment.due_time|time:"Hi"}}'>
+			{% if assessment.due_date %}
+				<span style="color:#7e7e7e">{{assessment.due_date}}</span> 
+				{% if assessment.due_time != None %} 
+					<span style="color:#7e7e7e">{{assessment.due_time}}</span> 
+				{% endif %}
+			{% endif %} </td>
+		<td data-value='{{assessment.weighting}}'> 
+			{% if assessment.weighting != None %}
+				<span style="color:#7e7e7e">{{assessment.weighting}} %</span>
+			{% endif %} </td>
+		<td data-value='{{assessment.last_edited_by.facebook_name}}'> 
+			<span style="color:#7e7e7e">{{assessment.last_edited_by.first_name}} {{assessment.last_edited_by.last_name}}</span>
+		</td>	
+	{% else %}
+		<td data-value='{{assessment.title}}'>
+			{{assessment.title}}<a href="{{assessment.get_absolute_url}}edit" style="padding-left: 10px">Edit</a>
+			{% if assessment.private != None%}
+				{% if assessment.private == True %}
+					<div id="private-lock" class="tool-tip" data-placement="right" data-toggle="tooltip" title="Marked as private. Only you can see this.">
+						<i class="icon-lock"></i>
+					</div>
+				{% endif %}
+			{% endif %}
+		</td>
+		<td data-value='{{assessment.due_date|date:"Y m d"}} {{assessment.due_time|time:"Hi"}}'>
+			{% if assessment.due_date %}
+				<span>{{assessment.due_date}}</span> 
+				{% if assessment.due_time != None %} 
+					<span>{{assessment.due_time}}</span> 
+				{% endif %}
+			{% endif %} </td>
+		<td data-value='{{assessment.weighting}}'> 
+			{% if  assessment.weighting != None %}
+				<span>{{assessment.weighting}} %</span>
+			{% endif %} </td>
+		<td data-value='{{assessment.last_edited_by.facebook_name}}'> 
+			<span>{{assessment.last_edited_by.first_name}} {{assessment.last_edited_by.last_name}}</span>
+		</td>
+	{% endif %}
+<!--<td data-value='{{assessment.deleted}}'> 
+			{{assessment.deleted}}
+		 </td> -->
+</tr>
+
+<style>
+	#private-lock {
+		float: right;
+		position: relative;
+		text-align : right;
+	}
+</style>	

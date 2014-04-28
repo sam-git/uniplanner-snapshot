@@ -1,0 +1,27 @@
+{% extends "anon/base.html" %}
+{% block content %}
+
+<div class="container" style="margin-bottom:50px">
+	<p>
+	<h4>{{university}} is supported.</h4>
+	</p>
+	<p>
+	<h4>Sign in with Facebook to start using UniPlanner.</h4>
+	
+
+	{% include 'django_facebook/_facebook_js.html' %}
+	<form action="{% url 'facebook_connect' %}" method="post">
+	    {% csrf_token %}
+	    <input type="hidden" value="{%url 'login:index' %}" name="next" />   
+
+	    <!--
+	    use error next for a seperate error page
+	    <input type="hidden" value="/error/" name="error_next" />
+	    -->
+	    <div id="facebook_login_js">
+	        <input class="btn btn-fb" onclick="F.connect(this.parentNode.parentNode); return false;" type="button" value="f | Sign in" /><br />
+	    </div>
+	</form>
+	</p>
+</div>
+{% endblock content %}

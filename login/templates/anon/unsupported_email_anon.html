@@ -1,0 +1,12 @@
+{% extends "omicron/unsupported_email_base.html" %}
+
+{% block form_div %}
+	<div>
+		<form action=" {% url 'login:anon:unsupported_email_add' %} " method="post"> {% csrf_token %}
+    		<input type="hidden" name="email" value="{{email}}" />
+	    	<button id="yes-btn" class="btn btn-primary">Yes</button>
+		</form>
+			<div id="no-btn"><a href="{% url 'login:index' %}">No Thanks</a></div>
+	</div>
+
+{% endblock %}

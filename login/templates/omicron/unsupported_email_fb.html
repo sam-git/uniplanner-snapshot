@@ -1,0 +1,16 @@
+{% extends "omicron/unsupported_email_base.html" %}
+
+{% block form_div %}
+<div>
+	<form action=" {% url 'login:notify_when_supported' %} " method="post"> {% csrf_token %}
+		<input type="hidden" name="email" value="{{email}}" />
+    	<button id="yes-btn" class="btn btn-primary">Yes</button>
+	</form>
+		<div id="no-btn"><a href="{% url 'login:no_supported_notify' %}">No Thanks</a></div>
+</div>
+<div>
+<p style="font-size:0.9em">
+	If the above email address is incorrect, click <a style="color:black" href="{% url 'login:reset_email' %}"><u>here</u></a> to change your university email address.
+	</p>
+</div>
+{% endblock form_div %}

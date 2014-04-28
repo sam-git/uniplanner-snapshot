@@ -1,0 +1,21 @@
+	<td data-value='{{assessment.title}}'><a href="{{assessment.get_absolute_url }}">
+		{{assessment.title}}</a>
+		{% if assessment.private != None%}
+				{% if assessment.private == True %}
+					<div id="private-lock" class="tool-tip" data-placement="right" data-toggle="tooltip" title="Marked as private. Only you can see this.">
+						<i class="icon-lock"></i>
+					</div>
+				{% endif %}
+			{% endif %}
+	</td>
+	<td data-value='{{assessment.course.list_name}}'><a href="{{ assessment.course.get_absolute_url }}">
+		{{assessment.course.list_name}}</a></td>
+	<td data-value='{{assessment.due_date|date:"Y m d"}} {{assessment.due_time|time:"Hi"}}'>
+		{{assessment.due_date}} 
+		{% if assessment.due_time != None %} 
+			{{assessment.due_time}} 
+		{% endif %}</td>
+	<td data-value='{{assessment.weighting}}'> 
+		{% if  assessment.weighting != None %}
+			{{assessment.weighting}} %
+		{% endif %} </td>

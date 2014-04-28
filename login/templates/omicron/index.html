@@ -1,0 +1,92 @@
+{% extends "omicron/base.html" %}
+{% load staticfiles %}
+{% block head %}
+{{ block.super }} 
+
+<meta property="og:title" content="UniPlanner"/>
+
+<meta property="og:image" content="http://{{site.domain}}{% static 'login/facebook_image.png' %}"/>
+
+<meta property="og:site_name" content="UniPlanner"/>
+<meta property="og:description" content="Course information by students, for students."/>
+{% endblock head %}
+
+
+{% block content %}
+<link href="{% static 'css/signup.css' %}" rel="stylesheet">
+
+<div class="container">
+	<div id="top-row" class="row">
+		<div class="col-lg-5 col-sm-5 col-md-push-7 col-sm-push-7">
+			<div id="signupwell" class="well">
+				<script>
+				function validateForm()
+				{
+					var x=document.forms["input"]["email"].value;
+					var atpos=x.indexOf("@");
+					var dotpos=x.lastIndexOf(".");
+					if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+					{
+						alert("Not a valid e-mail address");
+						return false;
+					}
+				}
+				</script>
+				<h4 id="sign-up-heading">Check whether UniPlanner is supported at your university.</h4>
+				<form name="input" action="{% url 'login:anon:check' %}" method="post"
+					onsubmit="return validateForm();" method="post">
+					{% csrf_token %}
+					<div id="uni-email-form" class="form-group">
+						<input type="text" class="form-control" name="email" placeholder="Enter your university email" >
+						<div class="row">
+							<div class="col-lg-6 col-lg-offset-6">
+								<input id="submit-btn" class="btn btn-default" type="submit" value="Submit">
+							</div>
+						</div>
+						
+					</div>
+					
+				</form>
+				
+			</div>
+		</div>
+		<div class="col-lg-7 col-sm-7 col-md-pull-5 col-sm-pull-5">
+			<div class="row">
+				<h1 id="main-text">
+				Crowd-sourced course information by students, for students. </h1>
+				<h3 id="main-text-2">UniPlanner connects university students with their classmates and courses.</h3>
+			
+			</div>
+		</div>
+		
+	</div>
+</div>
+<div id="lower-body">
+	<div class = "container">
+		<div class="row">
+			<div class="col-lg-4 col-sm-4">
+				<div class="well lower-text-box">
+					<p>UniPlanner is currently only available for University of Auckland students. More universities coming soon!</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-4">
+				<div class="well lower-text-box">
+					<p>UniPlanner has an amazing set of features that you will love.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-4">
+				<div class="well lower-text-box">
+					<p>Why don't you sign up now? There's absolutely no better time!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.footer {
+		display: none;
+	}
+
+</style>
+{% endblock content %}

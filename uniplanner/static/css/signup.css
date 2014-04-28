@@ -1,0 +1,66 @@
+.lower-text-box { /*Signup*/
+  height: 170px;
+  color: #636363;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 2em;
+  margin-left: 2em;
+
+  -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+          border-radius: 20px;
+}
+
+.signup-main { /*Signup*/
+  padding: 0 15px 0 15px;
+}
+
+#top-row { /*Signup*/
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+#main-text { /*Signup*/
+  margin:40px 15px 20px 20px;
+  /*text-align: justify;*/
+}
+
+#main-text-2 { /*Signup*/
+  margin:50px 15px 20px 20px;
+  /*text-align: justify;*/
+}
+
+#signupwell { /*Signup*/
+  /*background-color: #E5EBF5;*/
+  margin-top: 50px;
+  margin-bottom: 70px;
+  height: auto;
+  border: none;
+}
+
+#sign-up-heading { /*Signup*/
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+#uni-email-form { /*Signup*/
+  margin-bottom: 0px;
+}
+
+#submit-btn { /*Signup*/
+  margin-top: 20px;
+  color: #ededed;
+  background-color: #008C96;
+  width: 100%;
+  border: none;
+}
+
+#submit-btn:hover { /*Signup*/
+  background-color: #006D75;
+}
+
+#lower-body { /*Signup*/
+  background-color: #505E61;
+  height: 600px;
+  padding-top: 3em;
+}
